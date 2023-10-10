@@ -1,4 +1,4 @@
-package ba.edu.ibu.CookingApp.rest.controller;
+package ba.edu.ibu.CookingApp.rest.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

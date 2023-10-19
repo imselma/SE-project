@@ -1,0 +1,6 @@
+configuration:
+  swagger:
+    app: 'CookingApp'
+    description: 'A cookin app that enables the user to find a lot of recipes and cooking tips.'
+    developer: 'Selma Imširović'
+    email: 'selma.imsirovic@stu.ibu.edu.ba'

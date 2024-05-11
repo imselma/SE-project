@@ -42,3 +42,8 @@ export type User = {
         surname: string,
         userType: "MEMBER"
 }
+
+export type Advice = {
+    id: string,
+    name: string,
+    description: string }

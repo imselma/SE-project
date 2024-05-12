@@ -36,25 +36,32 @@ const NavigationBar = () => {
                             <a className="nav-link" style={TextStyle} href="/recipes">Recipes</a>
                         </li>
                         <li className="nav-item" style={ItemStyle}>
+                            <a className="nav-link" style={TextStyle} href="/advices">Advices</a>
+                        </li>
+                        <li className="nav-item" style={ItemStyle}>
                             <a className="nav-link" style={TextStyle} href="/aboutus">About Us</a>
                         </li>
-                        {localStorage.getItem('userToken') &&  (
+                        {localStorage.getItem('userToken') && (
                             <>
                                 <li className="nav-item" style={ItemStyle}>
                                     <a className="nav-link" style={TextStyle} href="/profile">Profile</a>
                                 </li>
                                 <li className="nav-item" style={ItemStyle}>
                                     <button type="button" className="btn"
-                                        style={{
-                                            backgroundColor: 'white',
-                                            color: '#47817E',
-                                            width: '75px',
-                                            height: '35px',
-                                            fontSize: '15px',
-                                            fontWeight: 'bold',
-                                            marginLeft: '10px',
-                                            marginTop: '3px'
-                                        }} onClick={() => { dispatch(logout()); navigate("/home") }}>Logout</button>
+                                            style={{
+                                                backgroundColor: 'white',
+                                                color: '#47817E',
+                                                width: '75px',
+                                                height: '35px',
+                                                fontSize: '15px',
+                                                fontWeight: 'bold',
+                                                marginLeft: '10px',
+                                                marginTop: '3px'
+                                            }} onClick={() => {
+                                        dispatch(logout());
+                                        navigate("/home")
+                                    }}>Logout
+                                    </button>
                                 </li>
                             </>
                         )}

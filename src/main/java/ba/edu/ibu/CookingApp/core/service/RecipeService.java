@@ -4,15 +4,19 @@ import ba.edu.ibu.CookingApp.core.exceptions.repository.ResourceNotFoundExceptio
 import ba.edu.ibu.CookingApp.core.model.Ingredient;
 import ba.edu.ibu.CookingApp.core.model.Recipe;
 import ba.edu.ibu.CookingApp.core.model.User;
+import ba.edu.ibu.CookingApp.core.model.enums.RecipeRestriction;
 import ba.edu.ibu.CookingApp.core.repository.IngredientRepository;
 import ba.edu.ibu.CookingApp.core.repository.RecipeRepository;
 import ba.edu.ibu.CookingApp.core.repository.UserRepository;
 import ba.edu.ibu.CookingApp.rest.dto.RecipeDTO;
 import ba.edu.ibu.CookingApp.rest.dto.RecipeRequestDTO;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -127,6 +131,12 @@ public class RecipeService {
 
         return recipe.get();
     }
+
+    public List<RecipeRestriction> getRecipeRestrictions () {
+        List<RecipeRestriction> restrictions = Arrays.asList(RecipeRestriction.values());
+        return restrictions;
+    }
+
 
 }
 

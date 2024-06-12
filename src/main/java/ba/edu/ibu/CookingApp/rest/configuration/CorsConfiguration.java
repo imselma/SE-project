@@ -1,5 +1,4 @@
-package ba.edu.ibu.library.rest.configuration;
-
+package ba.edu.ibu.CookingApp.rest.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,11 +15,9 @@ public class CorsConfiguration {
             public void addCorsMappings(CorsRegistry registry) {
                 registry
                         .addMapping("/**")
-                        .allowedOrigins("https://cooking-app-frontend.onrender.com")
-                        .allowedMethods("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS")
-                        .allowedHeaders("*");
+                        .allowedOrigins("*")
+                        .allowedMethods("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS");
             }
         };
     }
 }
-

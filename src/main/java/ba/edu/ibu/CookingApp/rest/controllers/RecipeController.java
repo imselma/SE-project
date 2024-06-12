@@ -2,13 +2,13 @@ package ba.edu.ibu.CookingApp.rest.controllers;
 
 import ba.edu.ibu.CookingApp.core.model.Ingredient;
 import ba.edu.ibu.CookingApp.core.model.Recipe;
+import ba.edu.ibu.CookingApp.core.model.enums.RecipeRestriction;
 import ba.edu.ibu.CookingApp.core.service.RecipeService;
 import ba.edu.ibu.CookingApp.rest.dto.RecipeDTO;
 import ba.edu.ibu.CookingApp.rest.dto.RecipeRequestDTO;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -73,5 +73,10 @@ public class RecipeController {
     @RequestMapping(method = RequestMethod.GET, path= "notDTO/{id}")
     public ResponseEntity<Recipe> getRecipeByIdNoDTO(@PathVariable String id){
         return ResponseEntity.ok(recipeService.getRecipeByIdNoDTO(id));
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/restrictionVlues")
+    public ResponseEntity<List<RecipeRestriction>> getRecipeRestrictions(){
+        return ResponseEntity.ok(recipeService.getRecipeRestrictions());
     }
 }

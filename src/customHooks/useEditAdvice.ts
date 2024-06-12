@@ -8,7 +8,7 @@ const useEditAdvice = () => {
   const queryClient = useQueryClient();
 
   return useMutation(
-    ({ id, adviceData }: { id: any; adviceData: Advice2 }) => axios.put(`http://localhost:2804/api/advices/${id}`, adviceData));
+    ({ id, adviceData }: { id: any; adviceData: Advice2 }) => axios.put(`https://se-project-abp1.onrender.com/api/advices/${id}`, adviceData));
 };
 
 export default useEditAdvice;

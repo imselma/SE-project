@@ -8,7 +8,7 @@ const useEditProfile = () => {
   const queryClient = useQueryClient();
  
   return useMutation(
-    ({ id, userData }: { id: any; userData: User }) => axios.put(`http://localhost:2804/api/users/${id}`, userData));
+    ({ id, userData }: { id: any; userData: User }) => axios.put(`https://se-project-abp1.onrender.com/api/users/${id}`, userData));
 };
  
 export default useEditProfile;

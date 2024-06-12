@@ -24,14 +24,14 @@ const CreateRecipeModal = ({ closeModal }) => {
     const [isHovered, setIsHovered] = useState(false);
 
     useEffect(() => {
-        axios.get("http://localhost:2804/api/users/byemail", { params: { email } }).then(res1 => {
+        axios.get("https://se-project-abp1.onrender.com/api/users/byemail", { params: { email } }).then(res1 => {
             console.log(res1.data)
         })
     }, [email])
 
 
     useEffect(() => {
-        axios.get("http://localhost:2804/api/ingredients/").then((res) =>
+        axios.get("https://se-project-abp1.onrender.com/api/ingredients/").then((res) =>
         {
             console.log(res.data);
             setIngredients(res.data);

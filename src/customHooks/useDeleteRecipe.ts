@@ -8,7 +8,7 @@ const useDeleteRecipe = () => {
   const queryClient = useQueryClient();
 
   return useMutation(
-    (id: any) => axios.delete(`http://localhost:2804/api/recipes/${id}`));
+    (id: any) => axios.delete(`https://se-project-abp1.onrender.com/api/recipes/${id}`));
 };
 
 export default useDeleteRecipe;

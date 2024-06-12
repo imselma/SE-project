@@ -7,7 +7,7 @@ const useAdviceById= () => {
     const queryClient = useQueryClient();
 
     return useMutation(
-        (id: string) => axios.get<Advice>(`http://localhost:2804/api/advices/notDTO/${id}`).then((response) => response.data),);
+        (id: string) => axios.get<Advice>(`https://se-project-abp1.onrender.com/api/advices/notDTO/${id}`).then((response) => response.data),);
 };
 
 export default useAdviceById;

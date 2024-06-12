@@ -8,7 +8,7 @@ const useCreateRecipe = () => {
     const queryClient = useQueryClient();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return useMutation((recipeData: any) => 
-    axios.post("http://localhost:2804/api/recipes/addRecipe", recipeData) )
+    axios.post("https://se-project-abp1.onrender.com/api/recipes/addRecipe", recipeData) )
 }
 
 export default useCreateRecipe;

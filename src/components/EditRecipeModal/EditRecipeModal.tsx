@@ -29,7 +29,7 @@ const EditRecipeModal = ({ closeModal }) => {
         const [isHovered, setIsHovered] = useState(false);
 
         useEffect(() => {
-            axios.get("http://localhost:2804/api/ingredients/").then((res) =>
+            axios.get("https://se-project-abp1.onrender.com/api/ingredients/").then((res) =>
             {
                 console.log(res.data);
                 setIngredients(res.data);

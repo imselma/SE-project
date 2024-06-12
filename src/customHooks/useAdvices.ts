@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 
 const useAdvices = () => {
     return useQuery('advices',
-    () => axios.get("http://localhost:2804/api/advices/").then(
+    () => axios.get("https://se-project-abp1.onrender.com/api/advices/").then(
         (response) => {
             const data = response.data;
             console.log(data);

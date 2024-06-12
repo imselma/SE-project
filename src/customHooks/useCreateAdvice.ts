@@ -7,7 +7,7 @@ const useCreateAdvice = () => {
     const queryClient = useQueryClient();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return useMutation((recipeData: any) =>
-        axios.post("http://localhost:2804/api/advices/addAdvice", recipeData) )
+        axios.post("https://se-project-abp1.onrender.com/api/advices/addAdvice", recipeData) )
 }
 
 export default useCreateAdvice;

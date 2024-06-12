@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Routes, Route } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
@@ -10,6 +11,7 @@ import LoginPage from "./pages/LoginPage";
 import {RegisterPage} from "./pages";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import AdvicePage from "./pages/AdvicePage.tsx";
+import SingleAdvice from "./pages/SingleAdvice";
 
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
         <Route path="/singlerecipe/:id" element={<SingleRecipe />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/singleadvice/:id" element={<SingleAdvice />} />
       </Routes>
 
     </>

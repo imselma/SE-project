@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom'
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -29,6 +29,7 @@ const registrationSchema = yup.object({
 const RegisterPage = () => {
 
     const navigate = useNavigate()
+    const [isHovered, setIsHovered] = useState(false);
 
     const { register, handleSubmit, formState: { errors } } = useForm<RegisterFormData>({
         resolver: yupResolver(registrationSchema)
@@ -97,7 +98,10 @@ const RegisterPage = () => {
                             <input type="text" className="form-control" {...register("surname")} />
                             {errors.surname && <small style={{ color: "red" }}>{errors.surname.message}</small>}
                         </div>
-                        <button type="submit" className="btn" style={{ backgroundColor: '#47817E', color: 'white' }} disabled={loading}>
+                        <button type="submit" className="btn" style={{ backgroundColor: isHovered? '#3E7370' : '#47817E', color: 'white' }} 
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
+                        disabled={loading}>
                             {loading ? 'Submitting...' : 'Register'}
                         </button>
                     </form>

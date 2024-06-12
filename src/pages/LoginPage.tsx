@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as yup from "yup"
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,6 +20,7 @@ const loginSchema = yup
 
 const LoginPage = () => {
     const navigate = useNavigate()
+    const [isHovered, setIsHovered] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm<LoginFormData>({
         resolver: yupResolver(loginSchema)
     })
@@ -68,7 +69,10 @@ const LoginPage = () => {
                             {errors.password && <small style={{ color: "red" }}>{errors.password.message}</small>}
                         </div>
 
-                        <button className="btn" type="submit" style={{ backgroundColor: '#47817E', color: 'white' }} disabled={loading}>
+                        <button className="btn" type="submit" style={{ backgroundColor: isHovered? '#3E7370' : '#47817E', color: 'white' }} 
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
+                        disabled={loading}>
                             {loading ? 'Submitting...' : 'Log in'}
                         </button>
 

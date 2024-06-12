@@ -1,4 +1,4 @@
-import React from 'react'
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react'
 import './SearchBar.css'
 const SearchBar = ({ onSearch }) => {

@@ -15,6 +15,8 @@ const SingleRecipe = () => {
     const navigate = useNavigate()
     const userID = localStorage.getItem('userID')
     const [openModal, setOpenModal] = useState(false);
+    const [editHovered, setEditHovered] = useState(false);
+    const [deleteHovered, setDeleteHovered] = useState(false);
 
     const deleteRecipe = useDeleteRecipe();
     const getRecipeById = useRecipeById();
@@ -94,8 +96,14 @@ const SingleRecipe = () => {
                                     </div>
                                     {userID === recipeData.user.id ? (
                                         <div className='buttons' style={{ display: 'flex', gap: '15px', marginTop: '70px', marginBottom: '20px', marginLeft: '60px' }}>
-                                            <button type="button" className="btn" style={{ backgroundColor: 'white', border: '2px solid #976B7A', color: '#976B7A', width: '125px', height: '45px', fontSize: '18px', fontWeight: 'bold' }} onClick={handleDelete}>Delete</button>
-                                            <button type="button" className="btn" style={{ backgroundColor: '#976B7A', color: 'white', width: '125px', height: '45px', fontSize: '18px', marginLeft: '20px', marginTop:'0px', fontWeight: 'bold' }} onClick={() => setOpenModal(true)}>Edit recipe</button>
+                                            <button type="button" className="btn" style={{ backgroundColor: deleteHovered ? '#f2f2f2' : 'white', border: '2px solid #976B7A', color: '#976B7A', width: '125px', height: '45px', fontSize: '18px', fontWeight: 'bold' }} 
+                                            onMouseEnter={() => setDeleteHovered(true)}
+                                            onMouseLeave={() => setDeleteHovered(false)}
+                                            onClick={handleDelete}>Delete</button>
+                                            <button type="button" className="btn" style={{ backgroundColor: editHovered ? '#7B556A' : '#976B7A', color: 'white', width: '125px', height: '45px', fontSize: '18px', marginLeft: '20px', marginTop:'0px', fontWeight: 'bold' }} 
+                                            onMouseEnter={() => setEditHovered(true)}
+                                            onMouseLeave={() => setEditHovered(false)}
+                                            onClick={() => setOpenModal(true)}>Edit recipe</button>
                                         </div>
                                     ) : null}
 

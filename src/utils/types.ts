@@ -26,7 +26,24 @@ export type Recipe2 = {
     userId: string
 
 }
+export type Advice = {
+    id: string,
+    name: string,
+    description: string,
+    user: {
+        id: string,
+        name: string,
+        surname: string
+    } 
 
+}
+
+export type Advice2 = {
+    name: string,
+    description: string,
+    userId: string
+
+}
 
 export type Ingredient = {
     name: string,
@@ -42,8 +59,3 @@ export type User = {
         surname: string,
         userType: "MEMBER"
 }
-
-export type Advice = {
-    id: string,
-    name: string,
-    description: string }

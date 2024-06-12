@@ -27,6 +27,8 @@ const ProfilePage = () => {
   const { data: recipes } = useRecipes();
   const getUserById = useUserById();
   const userRecipes = [];
+  const [editHovered, setEditHovered] = useState(false);
+  const [deleteHovered, setDeleteHovered] = useState(false);
 
   //deactivate
   const deleteProfile = useDeleteProfile();
@@ -99,8 +101,14 @@ const ProfilePage = () => {
               <p style={{ marginLeft: '10px', color: 'white' }}>{userData.email}</p>
             </div>
           </div>
-          <button type="button" className="btn" style={{ backgroundColor: '#976B7A', color: 'white', width: '120px', height: '40px', fontSize: '17px', marginLeft: '20px', marginTop: '-20px', fontWeight: 'bold' }} onClick={() => setOpenModal(true)}>Edit profile</button>
-          <button type="button" className="btn" style={{ backgroundColor: '#976B7A', color: 'white', width: '120px', height: '40px', fontSize: '17px', marginLeft: '20px', marginTop: '-20px', fontWeight: 'bold' }} onClick={handleDelete}>Delete</button>
+          <button type="button" className="btn" style={{ backgroundColor: editHovered ? '#7B556A' : '#976B7A', color: 'white', width: '120px', height: '40px', fontSize: '17px', marginLeft: '20px', marginTop: '-20px', fontWeight: 'bold' }} 
+          onMouseEnter={() => setEditHovered(true)}
+          onMouseLeave={() => setEditHovered(false)}
+          onClick={() => setOpenModal(true)}>Edit profile</button>
+          <button type="button" className="btn" style={{ backgroundColor: deleteHovered ? '#7B556A' : '#976B7A', color: 'white', width: '120px', height: '40px', fontSize: '17px', marginLeft: '20px', marginTop: '-20px', fontWeight: 'bold' }}
+          onMouseEnter={() => setDeleteHovered(true)}
+          onMouseLeave={() => setDeleteHovered(false)}
+          onClick={handleDelete}>Delete</button>
         </div>
         <div style={{ marginLeft: '40px', width: '100%' }}>
           <h2>{userData.name}'s recipes</h2>

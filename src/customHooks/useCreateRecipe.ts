@@ -11,4 +11,4 @@ const useCreateRecipe = () => {
     axios.post("http://localhost:2804/api/recipes/addRecipe", recipeData) )
 }
 
-export default useCreateRecipe
+export default useCreateRecipe;

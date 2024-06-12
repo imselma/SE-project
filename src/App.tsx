@@ -22,17 +22,17 @@ function App() {
       <NavigationBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/recipes" element={<RecipesPage />} />
-        <Route path="/advices" element={<AdvicePage />} />
-        <Route path="/aboutus" element={<AboutUsPage />} />
+        <Route path="https://se-project-frontend-4ymb.onrender.com//home" element={<HomePage />} />
+        <Route path="https://se-project-frontend-4ymb.onrender.com//recipes" element={<RecipesPage />} />
+        <Route path="https://se-project-frontend-4ymb.onrender.com//advices" element={<AdvicePage />} />
+        <Route path="https://se-project-frontend-4ymb.onrender.com//aboutus" element={<AboutUsPage />} />
         <Route element={<ProtectedRoute />}>
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="https://se-project-frontend-4ymb.onrender.com//profile" element={<ProfilePage />} />
         </Route>
-        <Route path="/singlerecipe/:id" element={<SingleRecipe />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/singleadvice/:id" element={<SingleAdvice />} />
+        <Route path="https://se-project-frontend-4ymb.onrender.com//singlerecipe/:id" element={<SingleRecipe />} />
+        <Route path="https://se-project-frontend-4ymb.onrender.com//login" element={<LoginPage />} />
+        <Route path="https://se-project-frontend-4ymb.onrender.com//register" element={<RegisterPage />} />
+        <Route path="https://se-project-frontend-4ymb.onrender.com//singleadvice/:id" element={<SingleAdvice />} />
       </Routes>
 
     </>

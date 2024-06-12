@@ -2,13 +2,15 @@
 import axios from "axios";
 import { useQuery } from "react-query";
 
-const useIngredients = () => {
-    return useQuery('recipes',
-    () => axios.get("http://localhost:2804/api/ingredients/").then(
+const useAdvices = () => {
+    return useQuery('advices',
+    () => axios.get("http://localhost:2804/api/advices/").then(
         (response) => {
             const data = response.data;
+            console.log(data);
+
             return data;
         }));
 }
 
-export default useIngredients;
+export default useAdvices;

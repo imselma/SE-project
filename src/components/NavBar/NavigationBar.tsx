@@ -1,12 +1,31 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useDispatch } from 'react-redux'
 import { logout } from '../../store/authSlice'
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 
 const NavigationBar = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const isLoggedIn = Boolean(localStorage.getItem('userToken'));
 
+    useEffect(() => {
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .navbar-nav .nav-link:hover {
+                text-decoration: underline;
+            }
+            .navbar-nav .btn:hover {
+                text-decoration: underline;
+            }
+        `;
+        document.head.appendChild(style);
+        return () => {
+            document.head.removeChild(style);
+        };
+    }, []);
+    
     const ItemStyle = {
         marginRight: '20px',
         fontWeight: 'bolder',
@@ -29,17 +48,21 @@ const NavigationBar = () => {
                         marginLeft: 'auto',
                         marginRight: '30px'
                     }}>
-                        <li className="nav-item" style={ItemStyle}>
-                            <a className="nav-link" style={TextStyle} href="/home">Home</a>
-                        </li>
+                        {!isLoggedIn && (
+                            <>
+                                <li className="nav-item" style={ItemStyle}>
+                                    <a className="nav-link" style={TextStyle} href="/home">Home</a>
+                                </li>
+                                <li className="nav-item" style={ItemStyle}>
+                                    <a className="nav-link" style={TextStyle} href="/aboutus">About Us</a>
+                                </li>
+                            </>
+                        )}
                         <li className="nav-item" style={ItemStyle}>
                             <a className="nav-link" style={TextStyle} href="/recipes">Recipes</a>
                         </li>
                         <li className="nav-item" style={ItemStyle}>
                             <a className="nav-link" style={TextStyle} href="/advices">Advices</a>
-                        </li>
-                        <li className="nav-item" style={ItemStyle}>
-                            <a className="nav-link" style={TextStyle} href="/aboutus">About Us</a>
                         </li>
                         {localStorage.getItem('userToken') && (
                             <>

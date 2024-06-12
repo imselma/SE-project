@@ -19,6 +19,7 @@ const EditProfileModal = ({ closeModal }) => {
     const [id, setId] = useState(localStorage.getItem('userID'))
     const editProfile = useEditProfile();
     const getUserById = useUserById();
+    const [isHovered, setIsHovered] = useState(false);
  
     useEffect(() => {
         if (id) {
@@ -108,9 +109,11 @@ const EditProfileModal = ({ closeModal }) => {
                     </div>
                     <div className="modal-footer" style={{ marginRight: '45px', marginBottom: '25px' }}>
                         <button type="button" className="btn"
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
                             onClick={handleEdit}
                             style={{
-                                backgroundColor: '#976B7A',
+                                backgroundColor: isHovered ? '#7B556A' : '#976B7A',
                                 color: 'white',
                                 width: '120px',
                                 height: '45px',

@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useMutation, useQueryClient } from "react-query"
-import { Recipe } from "../utils/types";
 import axios from "axios";
 
 
@@ -11,4 +10,4 @@ const useCreateAdvice = () => {
         axios.post("http://localhost:2804/api/advices/addAdvice", recipeData) )
 }
 
-export default useCreateAdvice();
+export default useCreateAdvice;

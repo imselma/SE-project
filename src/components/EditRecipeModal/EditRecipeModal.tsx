@@ -26,6 +26,7 @@ const EditRecipeModal = ({ closeModal }) => {
         const [ingredients, setIngredients] = useState([]);
         const [newIngredients, setNewIngredients] = useState([]);
         const [submodal, setSubmodal] = useState(false);
+        const [isHovered, setIsHovered] = useState(false);
 
         useEffect(() => {
             axios.get("http://localhost:2804/api/ingredients/").then((res) =>
@@ -160,9 +161,11 @@ const EditRecipeModal = ({ closeModal }) => {
                     </div>
                     <div className="modal-footer" style={{ marginRight: '45px', marginBottom: '25px' }}>
                         <button type="button" className="btn"
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
                             onClick={() => { handleEdit()}}
                             style={{
-                                backgroundColor: '#976B7A',
+                                backgroundColor: isHovered ? '#7B556A' : '#976B7A',
                                 color: 'white',
                                 width: '120px',
                                 height: '45px',

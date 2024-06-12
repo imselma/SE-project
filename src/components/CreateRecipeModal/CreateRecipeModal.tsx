@@ -21,6 +21,7 @@ const CreateRecipeModal = ({ closeModal }) => {
     const [submodal, setSubmodal] = useState(false);
     const [email, setEmail] = useState(localStorage.getItem('userEmail'));
     const [userId, setUserId] = useState(localStorage.getItem("userID"));
+    const [isHovered, setIsHovered] = useState(false);
 
     useEffect(() => {
         axios.get("http://localhost:2804/api/users/byemail", { params: { email } }).then(res1 => {
@@ -131,9 +132,11 @@ const CreateRecipeModal = ({ closeModal }) => {
                     </div>
                     <div className="modal-footer" style={{ marginRight: '45px', marginBottom: '25px' }}>
                         <button type="button" className="btn"
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
                             onClick={() => { handleCreation()}}
                             style={{
-                                backgroundColor: '#976B7A',
+                                backgroundColor: isHovered ? '#7B556A' : '#976B7A',
                                 color: 'white',
                                 width: '120px',
                                 height: '45px',

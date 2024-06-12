@@ -5,6 +5,7 @@ import useCreateIngredient from '../../customHooks/useCreateIngredient';
 const CreateIngredientModal = ({recipeData, newIngredients, closeSubmodal, closeModal}) => {
 
     const createIngredient = useCreateIngredient();
+    const [isHovered, setIsHovered] = useState(false);
 
     const [ingredientData, setIngredientData] = useState({
         name: "",
@@ -75,13 +76,15 @@ const CreateIngredientModal = ({recipeData, newIngredients, closeSubmodal, close
                 </div>
                 <div className="modal-footer" style={{ marginRight: '45px', marginBottom: '25px' }}>
                     <button type="button" className="btn"
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
                         onClick={() => {
                             sendRequest()
                             closeSubmodal(false)
                             closeModal(false)
                         }}
                         style={{
-                            backgroundColor: '#976B7A',
+                            backgroundColor: isHovered ? '#7B556A' : '#976B7A',
                             color: 'white',
                             width: '120px',
                             height: '45px',

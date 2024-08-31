@@ -16,7 +16,7 @@
     "@mui/material": "^5.15.1",
     "@reduxjs/toolkit": "^2.0.1",
     "aws-sdk": "^2.1545.0",
-    "axios": "^1.6.5",
+    "axios": "^1.7.4",
     "bcrypt": "^5.1.1",
     "bcryptjs-react": "^2.4.6",
     "bootstrap": "^5.2.3",
